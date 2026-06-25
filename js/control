@@ -1,0 +1,41 @@
+// ==========================================
+// 1. 電腦鍵盤事件監聽
+// ==========================================
+window.addEventListener('keydown', (event) => {
+    switch (event.key.toUpperCase()) {
+        // --- 左手：翻轉方塊 ---
+        case 'W': case 'S':
+            rotatePiece('X'); break;
+        case 'A': case 'D':
+            rotatePiece('Y'); break;
+        case 'Q': case 'E':
+            rotatePiece('Z'); break;
+
+        // --- 右手：移動方塊 (支援數字鍵與一般數字鍵) ---
+        case '8': case 'NUMPAD8': // 前 (Y軸負向減小)
+            movePiece(0, -1, 0); break;
+        case '2': case 'NUMPAD2': // 後 (Y軸正向增大)
+            movePiece(0, 1, 0); break;
+        case '4': case 'NUMPAD4': // 左 (X軸負向減小)
+            movePiece(-1, 0, 0); break;
+        case '6': case 'NUMPAD6': // 右 (X軸正向增大)
+            movePiece(1, 0, 0); break;
+        case '0': case 'NUMPAD0': // 快速下落 (Z軸向下)
+            movePiece(0, 0, -1); break;
+    }
+});
+
+// ==========================================
+// 2. 行動裝置：手機/平板虛擬按鈕點擊事件
+// ==========================================
+// 左側翻轉
+document.getElementById('btn-rot-x').addEventListener('click', () => rotatePiece('X'));
+document.getElementById('btn-rot-y').addEventListener('click', () => rotatePiece('Y'));
+document.getElementById('btn-rot-z').addEventListener('click', () => rotatePiece('Z'));
+
+// 右側移動
+document.getElementById('btn-move-fwd').addEventListener('click', () => movePiece(0, -1, 0));
+document.getElementById('btn-move-back').addEventListener('click', () => movePiece(0, 1, 0));
+document.getElementById('btn-move-left').addEventListener('click', () => movePiece(-1, 0, 0));
+document.getElementById('btn-move-right').addEventListener('click', () => movePiece(1, 0, 0));
+document.getElementById('btn-drop').addEventListener('click', () => movePiece(0, 0, -1));
