@@ -211,7 +211,13 @@ window.addEventListener('resize', () => {
     camera.left = -d * aspect; camera.right = d * aspect; camera.top = d; camera.bottom = -d;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+    window.movePiece = movePiece;
+    window.rotatePiece = rotatePiece;
 });
+// ...（前面所有的程式碼保持不變）...
+
+// 確保將控制函式公開給全域（讓 control.js 可以存取）
+
 
 // 啟動
 init3D();
