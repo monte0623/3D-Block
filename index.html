@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>3D Isometric Tetris</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div id="game-container">
+        <div id="hud">
+            <div id="level-display">關卡: 1 (5x5x10)</div>
+            <div id="timer-display">剩餘時間: 06:00</div>
+            <div id="score-display">分數: 0</div>
+        </div>
+
+        <div id="canvas-wrapper"></div>
+
+        <div id="touch-controls">
+            <div class="control-group left-group">
+                <button class="btn" id="btn-rot-x">旋轉 X</button>
+                <button class="btn" id="btn-rot-y">旋轉 Y</button>
+                <button class="btn" id="btn-rot-z">旋轉 Z</button>
+            </div>
+            <div class="control-group right-group">
+                <div class="dpad">
+                    <button class="btn" id="btn-move-fwd">前 (8)</button>
+                    <div class="dpad-row">
+                        <button class="btn" id="btn-move-left">左 (4)</button>
+                        <button class="btn" id="btn-drop">落 (0)</button>
+                        <button class="btn" id="btn-move-right">右 (6)</button>
+                    </div>
+                    <button class="btn" id="btn-move-back">後 (2)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="leaderboard-modal" class="hidden">
+        <div class="modal-content">
+            <h2>🏆 簽名排行榜 (前10名)</h2>
+            <ol id="leaderboard-list"></ol>
+            <div id="signature-section" class="hidden">
+                <p>恭喜榮登前10名！請簽名：</p>
+                <input type="text" id="player-name" maxlength="10" placeholder="輸入你的名字">
+                <button id="submit-score">送出紀錄</button>
+            </div>
+            <button id="close-modal">重新開始</button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
