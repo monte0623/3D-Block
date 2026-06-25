@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 資訊列 */
+#hud {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 0;
+    z-index: 10;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Three.js 容器 */
+#canvas-wrapper {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* 行動裝置虛擬按鈕 - 橫式配置 */
+#touch-controls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 10;
+    pointer-events: none; /* 讓空白處不阻擋點擊觸控 */
+}
+
+.control-group {
+    pointer-events: auto; /* 讓按鈕可以點擊 */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:active {
+    background: rgba(255, 255, 255, 0.6);
+    color: #000;
+}
+
+/* 右側方向鍵 D-Pad 佈局 */
+.dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.dpad-row {
+    display: flex;
+    gap: 5px;
+}
+
+/* 排行榜彈窗 */
+#leaderboard-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.modal-content {
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border: 2px solid #555;
+}
+.hidden { display: none !important; }
+ol { text-align: left; margin: 20px 40px; }
+li { margin: 8px 0; }
+input { padding: 8px; width: 70%; margin-top: 10px; font-size: 1rem; }
